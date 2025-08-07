@@ -428,6 +428,7 @@ class NanofiltrationMLAnalyzer:
         plt.rcParams['font.size'] = 12
         plt.rcParams['axes.titlesize'] = 14
         plt.rcParams['axes.labelsize'] = 12
+        plt.rcParams['figure.dpi'] = 100
         
         results = self.results[target_name][model_name]['experiments']
         df_results = pd.DataFrame(results)
@@ -596,12 +597,14 @@ class NanofiltrationMLAnalyzer:
                 explainer = shap.Explainer(model)
                 shap_values = explainer(X_scaled)
             elif best_model_name == 'RandomForest':
-                explainer = shap.TreeExplainer(model, check_additivity=False)
+                # Use TreeExplainer for RandomForest with a sample of background data
+                background_data = X_scaled[:min(100, len(X_scaled))]
+                explainer = shap.TreeExplainer(model, background_data)
                 shap_values = explainer.shap_values(X_scaled)
                 # Convert to SHAP values object for consistency
                 shap_values = shap.Explanation(values=shap_values, feature_names=feature_names)
             else:  # Neural Network
-                explainer = shap.Explainer(model, X_scaled)
+                explainer = shap.Explainer(model, X_scaled[:min(100, len(X_scaled))])
                 shap_values = explainer(X_scaled)
             
             # Save SHAP values to CSV / 将SHAP值保存为CSV
