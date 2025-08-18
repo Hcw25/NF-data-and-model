@@ -1,0 +1,130 @@
+
+    ================================================================
+    XGBOOST LITHIUM-MAGNESIUM SEPARATION COEFFICIENT ANALYSIS REPORT
+    ================================================================
+    
+    ANALYSIS OVERVIEW:
+    -----------------
+    This report presents the results of XGBoost single-objective modeling 
+    for predicting lithium-magnesium separation coefficients in nanofiltration
+    membranes. The analysis employed a three-layer validation strategy with
+    300 repeated experiments to ensure robust and reliable results.
+    
+    DATA PROCESSING SUMMARY:
+    -----------------------
+    • Outliers detected: 0 samples
+    • Outlier values: []
+    • Outlier detection range: [-105.26, 191.07]
+    • Final dataset size: Used after outlier removal
+    
+    MODEL CONFIGURATION:
+    -------------------
+    • Algorithm: XGBoost Regressor
+    • n_estimators: 180
+    • learning_rate: 0.05
+    • max_depth: 6
+    • objective: reg:squarederror
+    • importance_type: total_gain
+    
+    VALIDATION STRATEGY:
+    -------------------
+    • Layer 1: Train/Test split (80%/20%)
+    • Layer 2: Internal validation split (80%/20%) 
+    • Layer 3: Model optimization
+    • Repeated experiments: 300
+    
+    PERFORMANCE RESULTS:
+    -------------------
+    Training Performance:
+    • R² Score: 0.9970 ± 0.0014
+    • RMSE: 1.8016 ± 0.3380
+    • MAE: 1.0499 ± 0.1287
+    
+    Test Performance:
+    • R² Score: 0.5857 ± 0.1431
+    • RMSE: 20.3815 ± 4.9168
+    • MAE: 14.4719 ± 3.2536
+    
+    Best Single Model:
+    • Best Test R²: 0.9128
+    
+    SUCCESS CRITERIA EVALUATION:
+    ----------------------------
+    Target: R² > 0.5
+    Achievement: ✓ SUCCESS
+    Actual R²: 0.5857
+    
+    TOP 5 CRITICAL FACTORS (Feature Importance):
+    -------------------------------------------
+    
+    1. Magnesium Ion Rejection Rate
+       Importance: 0.4673 ± 0.0280
+       Scientific Significance: Higher Mg²⁺ rejection directly correlates with better Li⁺/Mg²⁺ selectivity due to size exclusion effects.
+        
+    2. Lithium Ion Rejection Rate
+       Importance: 0.1115 ± 0.0250
+       Scientific Significance: Lower Li⁺ rejection allows preferential lithium passage, enhancing separation coefficient.
+        
+    3. Pore Size
+       Importance: 0.0953 ± 0.0300
+       Scientific Significance: Optimal pore size enables selective ion transport based on hydrated ionic radii differences.
+        
+    4. Molecular Weight Cut-Off（MWCO）
+       Importance: 0.0490 ± 0.0218
+       Scientific Significance: MWCO determines molecular size selectivity, affecting ion separation performance.
+        
+    5. Pore_Size_MWCO_Ratio
+       Importance: 0.0419 ± 0.0173
+       Scientific Significance: Structural consistency indicator for membrane selective layer.
+        
+    
+    COMPLETE FEATURE RANKING:
+    ------------------------
+         1. Magnesium Ion Rejection Rate   | 0.4673 ± 0.0280
+     2. Lithium Ion Rejection Rate     | 0.1115 ± 0.0250
+     3. Pore Size                      | 0.0953 ± 0.0300
+     4. Molecular Weight Cut-Off（MWCO） | 0.0490 ± 0.0218
+     5. Pore_Size_MWCO_Ratio           | 0.0419 ± 0.0173
+     6. Permeance_Flux_Ratio           | 0.0344 ± 0.0139
+     7. Permeance                      | 0.0310 ± 0.0130
+     8. Contact Angle                  | 0.0277 ± 0.0119
+     9. Monomers                       | 0.0228 ± 0.0104
+    10. Rejection_Selectivity_Ratio    | 0.0203 ± 0.0089
+    11. Surface Roughness              | 0.0188 ± 0.0100
+    12. Thickness                      | 0.0186 ± 0.0081
+    13. Zeta potential                 | 0.0181 ± 0.0079
+    14. Surface_Charge_Hydrophilicity  | 0.0118 ± 0.0065
+    15. Osmotic Pressure               | 0.0116 ± 0.0079
+    16. Membrane Permeation Flux       | 0.0064 ± 0.0048
+    17. Support Membrane               | 0.0061 ± 0.0055
+    18. Concentration_Osmotic_Ratio    | 0.0059 ± 0.0043
+    19. Total Concentration            | 0.0017 ± 0.0015
+
+    
+    CONCLUSIONS AND RECOMMENDATIONS:
+    -------------------------------
+    1. Model Performance: The XGBoost model successfully achieved the target R² > 0.5 
+       with a final test score of 0.5857.
+    
+    2. Key Factors: The analysis identified 19 factors affecting separation performance,
+       with the top 5 being most critical for lithium-magnesium separation.
+    
+    3. Model Stability: The standard deviation of 0.1431 across 300 experiments
+       indicates moderate model stability.
+    
+    4. Practical Implications: The identified key factors provide actionable insights for
+       membrane design and process optimization.
+    
+    GENERATED OUTPUTS:
+    -----------------
+    • feature_importance_plot.png: Feature importance visualization
+    • performance_analysis.png: Model performance analysis
+    • validation_distribution.png: Validation score distributions
+    • analysis_report.txt: This comprehensive report
+    
+    ================================================================
+    Analysis completed successfully.
+    For questions or further analysis, please refer to the methodology
+    described in this report.
+    ================================================================
+    
